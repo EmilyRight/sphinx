@@ -42,4 +42,26 @@
     opacity: 1;
   }
 }
+
+@keyframes freeze {
+  0% {
+    height: 0vh;
+    width: 0%;
+    border-radius: 50%;
+  }
+  100% {
+    height: 100vh;
+    width: 100%;
+    border-radius: 0%;
+  }
+}
+
+@keyframes blur {
+  0% {
+    filter: blur(0);
+  }
+  100% {
+    filter: blur(5px);
+  }
+}
 @import "plugins/animate";
