@@ -114,36 +114,38 @@ function goNextSection() {
   }
 
 
-function freeze() {
+function toggleClasses() {
   const body = document.body
   const page = document.querySelector('.page');
   const modal = document.querySelector('.ice-modal')
+  body.classList.toggle('noscroll');
+  page.classList.toggle('freezed');
+  modal.classList.toggle('hidden');
+}
+
+function freeze() {
   const connectBtn = document.querySelector('.btn-primary');
+  const modal = document.querySelector('.ice-modal')
+
   if(document.documentElement.clientWidth <= 600) {
     connectBtn.addEventListener('click', (event) => {
       event.preventDefault();
-
-        body.classList.add('noscroll');
-        page.classList.add('freezed');
-        modal.classList.remove('hidden');
-        modal.addEventListener('animationend', () => {
-          console.log('hey');
-          onAnimationComplete()
-        })
+      toggleClasses();
+      modal.addEventListener('animationend', () => {
+        onAnimationComplete()
       })
+    })
   }
-    function onAnimationComplete() {
-      window.location = connectBtn.href;
-      
-      setTimeout(() => {
-        body.classList.remove('noscroll');
-        page.classList.remove('freezed');
-        modal.classList.add('hidden');
-      }, 5000)
-    }
+
 
 }
-
+function onAnimationComplete() {
+  const connectBtn = document.querySelector('.btn-primary');
+  window.location = connectBtn.href;
+  setTimeout(() => {
+    toggleClasses()
+  }, 5000)
+}
 
 /// Detect device
 function detectDevice() {
