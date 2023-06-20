@@ -24,6 +24,7 @@ body {
 body {
   color: $color-dark;
   background: inherit;
+  position: relative;
   font: 1.6rem/1.375 tele2_short, sans-serif;
   -webkit-text-size-adjust: none;
   &.noscroll {
@@ -52,6 +53,15 @@ body {
 
 .page {
   transition: 0.2s;
+  position: relative;
+  &.freezed {
+    animation-name: blur;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+  }
 }
 .wow {
   opacity: 0;

@@ -1,35 +1,27 @@
 //import 'babel-polyfill'
 import $ from 'jquery'
 import { WOW } from './vendor/wow.min.js'
-
+import { gtmSet, gaPush } from './gtm-events';
 window.jQuery = window.$ = $;
 require('waypoints/lib/jquery.waypoints.js');
 require('jquery.easing');
 
 
 ////////// DocReady //////////
-$(function(){
-    detectDevice();
-    videoTeaser();
-    faqOpener()
-    new WOW().init();
-
-    goNextSection()
 
 
-    /// Waypoints
-    $('.section-layer').waypoint(function(dir){pointThis(dir, this)},{offset: '20%'});
-    function pointThis(d,el){let $el = $(el.element);
-        (d === 'down')? $el.addClass('on_point') : $el.removeClass('on_point');
-    }
+window.addEventListener('load', () => {
+  goNextSection();
+  detectDevice();
+  // video
+  videoTeaser();
+  new WOW().init();
+  gtmSet();
+  console.log(document.documentElement.clientWidth);
 
+    freeze()
 
-
-//window.addEventListener("resize", () => {getOrientation();}, true);
-//window.addEventListener("orientationchange", () => {startGame()}, false);
-}); //end DocReady
-//////////////////////////////
-
+});
 
 function videoTeaser(){
     let startedClass = 'is_started',
@@ -120,6 +112,32 @@ function goNextSection() {
     const y = el.getBoundingClientRect().top + window.pageYOffset + offs;
     window.scrollTo({ top: y, behavior: 'smooth' }); // element.scrollIntoView();
   }
+
+
+function freeze() {
+  const body = document.body
+  const page = document.querySelector('.page');
+  const modal = document.querySelector('.ice-modal')
+  const connectBtn = document.querySelector('.btn-primary');
+  if(document.documentElement.clientWidth <= 600) {
+    connectBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+
+        body.classList.add('noscroll');
+        page.classList.add('freezed');
+        modal.classList.remove('hidden');
+        modal.addEventListener('animationend', () => {
+          console.log('hey');
+          onAnimationComplete()
+        })
+      })
+  }
+    function onAnimationComplete() {
+      window.location = connectBtn.href;
+    }
+
+}
+
 
 /// Detect device
 function detectDevice() {
