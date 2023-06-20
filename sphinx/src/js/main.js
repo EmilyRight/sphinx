@@ -134,6 +134,9 @@ function freeze() {
   }
     function onAnimationComplete() {
       window.location = connectBtn.href;
+      body.classList.remove('noscroll');
+      page.classList.remove('freezed');
+      modal.classList.add('hidden');
     }
 
 }
