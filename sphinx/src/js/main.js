@@ -13,12 +13,12 @@ require('jquery.easing');
 window.addEventListener('load', () => {
   goNextSection();
   detectDevice();
+  faqOpener()
   // video
   videoTeaser();
   new WOW().init();
   gtmSet();
   console.log(document.documentElement.clientWidth);
-
     freeze()
 
 });
