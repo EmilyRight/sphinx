@@ -5,10 +5,9 @@
     "p": "parcel",
     "p2": "node node_modules/parcel/lib/bin.js",
     "clean:output": "rimraf dist/**.*",
-    "start": "npm run p -- sphinx/src/index.html",
-    "build": "npm run clean:output && npm run p -- build sphinx/src/index.html --public-url \".\" --no-source-maps"
+    "start": "npm run p -- sphinx.tele2.ru/src/index.html",
+    "build": "npm run clean:output && npm run p -- build sphinx.tele2.ru/src/index.html --public-url \".\" --no-source-maps"
   },
-  
   "devDependencies": {
     "@parcel/reporter-bundle-analyzer": "^2.5.0",
     "@parcel/reporter-bundle-buddy": "^2.5.0",
@@ -20,11 +19,11 @@
     "eslint": "^8.43.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
-    "parcel": "^2.8.2",
-    "parcel-bundler": "^1.12.4",
+    "parcel": "^2.9.2",
+    "parcel-bundler": "^1.8.1",
     "parcel-plugin-inline-source": "^1.0.0",
     "sass": "^1.32.10",
-    "sharp": "^0.29.1"
+    "sharp": "^0.32.1"
   },
   "dependencies": {
     "animejs": "^3.2.1",

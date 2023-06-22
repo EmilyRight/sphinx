@@ -48,6 +48,7 @@ export default class Animations {
     delay: 300,
     iterations: 1,
     fill: 'forwards',
+    easing: 'ease',
   };
 
   constructor() {
@@ -70,7 +71,7 @@ export default class Animations {
   setAnimation() {
     this.animatedItems.forEach((item, i) => {
       if (this.screenWidth < 600) {
-        this.optionsForSideAnimations.duration = 100 * (i + 1);
+        this.optionsForSideAnimations.duration = 200 * (i + 1);
         if (i % 2 !== 0) {
           item.animate(this.keyframesForLeft, this.optionsForSideAnimations);
         } else {
