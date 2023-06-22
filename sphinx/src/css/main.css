@@ -924,6 +924,7 @@ body .background-wrapper {
   font-size: 2.2rem;
   background-repeat: no-repeat;
   background-size: 90%;
+  opacity: 0;
   background-position: center center;
   display: flex;
   justify-content: center;
@@ -975,6 +976,7 @@ body .background-wrapper {
     margin-bottom: 2.4rem;
   }
 }
+
 .section--faq .section-layer {
   padding-top: 0;
   padding-bottom: 14rem;
@@ -1931,8 +1933,8 @@ body .background-wrapper {
 @-webkit-keyframes fadeInLeft {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-20px);
-    transform: translateX(-20px);
+    -webkit-transform: translateX(-50px);
+    transform: translateX(-50px);
   }
   100% {
     opacity: 1;
@@ -1943,9 +1945,9 @@ body .background-wrapper {
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
-    -webkit-transform: translateX(-20px);
-    -ms-transform: translateX(-20px);
-    transform: translateX(-20px);
+    -webkit-transform: translateX(-50px);
+    -ms-transform: translateX(-50px);
+    transform: translateX(-50px);
   }
   100% {
     opacity: 1;
@@ -2081,6 +2083,25 @@ body .background-wrapper {
 .fadeInUp {
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp;
+}
+
+@keyframes fadeInUpFast {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(50px);
+    -ms-transform: translateY(50px);
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+.fadeInUpFast {
+  -webkit-animation-name: fadeInUpFast;
+  animation-name: fadeInUpFast;
 }
 
 @-webkit-keyframes fadeInUpBig {
